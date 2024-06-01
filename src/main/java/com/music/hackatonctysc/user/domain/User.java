@@ -3,24 +3,31 @@ package com.music.hackatonctysc.user.domain;
 import com.music.hackatonctysc.LIstaDeReproduccion.domain.Playlist;
 import com.music.hackatonctysc.Song.domain.Song;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+<<<<<<< HEAD
 
+=======
+@Entity
+>>>>>>> 6f25739a264402b2ae0fa3dccfc5bc48aea8501b
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idArtist;
+    private Long idUser;
 
     @NotBlank
     @Column(nullable = false)
@@ -38,8 +45,7 @@ public class User {
 
     @PastOrPresent
     @Column(nullable = false)
-    private LocalDateTime registerDate;
-
+    private LocalDate registerDate;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Playlist> playlists;
