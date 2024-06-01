@@ -25,15 +25,15 @@ public class Song {
     private String title;
 
     @ManyToOne
-    @JoinColumn(name = "artistId")
+    @JoinColumn(name = "artist_id")
     private Artist artist;
 
-    @ManyToOne
-    @JoinColumn(name = "albumId")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "album_id")
     private Album albumID;
 
     @ManyToOne
-    @JoinColumn(name = "usuarioId")
+    @JoinColumn(name = "usuario_id")
     private User usuario;
 
     @ManyToMany(mappedBy = "canciones")

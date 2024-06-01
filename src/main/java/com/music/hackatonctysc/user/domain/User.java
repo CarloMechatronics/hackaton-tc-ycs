@@ -19,11 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-<<<<<<< HEAD
-
-=======
 @Entity
->>>>>>> 6f25739a264402b2ae0fa3dccfc5bc48aea8501b
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
