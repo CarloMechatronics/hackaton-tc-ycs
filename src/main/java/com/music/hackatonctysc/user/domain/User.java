@@ -20,10 +20,11 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
+    private Integer idUser;
 
     @NotBlank
     @Column(nullable = false)
