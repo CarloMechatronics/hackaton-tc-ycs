@@ -1,6 +1,6 @@
-package com.music.hackatonctysc.LIstaDeReproduccion.domain;
+package com.music.hackatonctysc.playlist.domain;
 
-import com.music.hackatonctysc.Song.domain.Song;
+import com.music.hackatonctysc.song.domain.Song;
 import com.music.hackatonctysc.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -41,6 +41,6 @@ public class Playlist {
             joinColumns = @JoinColumn(name = "playlist_id"),
             inverseJoinColumns = @JoinColumn(name = "song_id")
     )
-    private List<Song> song;
+    private List<Song> songs;
 
 }

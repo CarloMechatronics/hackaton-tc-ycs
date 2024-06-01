@@ -1,7 +1,7 @@
-package com.music.hackatonctysc.Song.domain;
+package com.music.hackatonctysc.song.domain;
 
-import com.music.hackatonctysc.Album.domain.Album;
-import com.music.hackatonctysc.LIstaDeReproduccion.domain.Playlist;
+import com.music.hackatonctysc.album.domain.Album;
+import com.music.hackatonctysc.playlist.domain.Playlist;
 import com.music.hackatonctysc.artist.domain.Artist;
 import com.music.hackatonctysc.user.domain.User;
 import jakarta.persistence.*;

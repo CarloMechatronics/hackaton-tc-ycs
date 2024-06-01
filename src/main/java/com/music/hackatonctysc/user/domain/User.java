@@ -1,7 +1,7 @@
 package com.music.hackatonctysc.user.domain;
 
-import com.music.hackatonctysc.LIstaDeReproduccion.domain.Playlist;
-import com.music.hackatonctysc.Song.domain.Song;
+import com.music.hackatonctysc.playlist.domain.Playlist;
+import com.music.hackatonctysc.song.domain.Song;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

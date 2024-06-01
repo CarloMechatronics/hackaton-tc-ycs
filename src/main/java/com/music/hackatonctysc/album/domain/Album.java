@@ -1,6 +1,6 @@
-package com.music.hackatonctysc.Album.domain;
+package com.music.hackatonctysc.album.domain;
 
-import com.music.hackatonctysc.Song.domain.Song;
+import com.music.hackatonctysc.song.domain.Song;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
