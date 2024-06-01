@@ -13,7 +13,7 @@ public class EmailService {
     private JavaMailSender mailSender;
 
     @Async
-    public void sendPlaylistCreationNotification(Playlist playlist, String to) {
+    public void sendPlaylistCreationNotification(String playlist, String to) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
         message.setSubject("Playlist creation notification");
