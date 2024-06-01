@@ -28,15 +28,38 @@ public class PlaylistService {
         return playlistRepository.save(playlist);
     }
 
+    public void deletePlaylist(Integer id) {
+        if (playlistRepository.existsById(id)) {
+            playlistRepository.deleteById(id);
+        } else throw new IllegalArgumentException("Invalid id");
+    }
+
+
     public List<Song> findAllPlaylistSongs(Integer id) {
         Playlist playlist = playlistRepository.findById(id).orElseThrow();
 
         return playlist.getSongs();
     }
 
-    public Void deletePlaylist(Integer id) {
-        if (playlistRepository.existsById(id)) {
-            playlistRepository.deleteById(id);
-        } else throw new IllegalArgumentException("Invalid id");
+    public Playlist addSong(Integer id, Song song) {
+        Playlist playlist = playlistRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+
+        if (song != null)
+            playlist.getSongs().add(song);
+        else throw new IllegalArgumentException("Invalid id");
+
+        return playlistRepository.save(playlist);
+    }
+
+    public void deletePlaylistSong(Integer id, Integer songId) {
+        Playlist playlist = playlistRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid playlist id"));
+        Song song = playlist.getSongs().stream()
+                .filter(s -> s.getId().equals(songId))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Invalid song id"));
+        playlist.getSongs().remove(song);
+
+        playlistRepository.save(playlist);
     }
 }
