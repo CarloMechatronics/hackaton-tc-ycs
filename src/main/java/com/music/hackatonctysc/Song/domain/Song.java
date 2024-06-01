@@ -1,13 +1,16 @@
 package com.music.hackatonctysc.Song.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.music.hackatonctysc.Album.domain.Album;
+import com.music.hackatonctysc.LIstaDeReproduccion.domain.Playlist;
+import com.music.hackatonctysc.artist.domain.Artist;
+import com.music.hackatonctysc.user.domain.User;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Setter
 @Getter
@@ -21,9 +24,21 @@ public class Song {
 
     private String title;
 
-    private Integer artistID;
+    @ManyToOne
+    @JoinColumn(name = "artistId")
+    private Artist artist;
 
-    private Integer albumID;
+    @ManyToOne
+    @JoinColumn(name = "albumId")
+    private Album albumID;
+
+    @ManyToOne
+    @JoinColumn(name = "usuarioId")
+    private User usuario;
+
+    @ManyToMany(mappedBy = "canciones")
+    private List<Playlist> playlists;
 
     private Integer duration;
 }
+

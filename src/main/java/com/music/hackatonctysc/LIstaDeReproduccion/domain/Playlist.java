@@ -1,15 +1,14 @@
 package com.music.hackatonctysc.LIstaDeReproduccion.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.music.hackatonctysc.Song.domain.Song;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -21,9 +20,21 @@ public class Playlist {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer idPlaylist;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private Integer idUser;
 
+    @Column(nullable = false)
     private Date creationDate;
+
+    @ManyToMany
+    @JoinTable(
+            name = "playlist_song",
+            joinColumns = @JoinColumn(name = "playlist_id"),
+            inverseJoinColumns = @JoinColumn(name = "cancion_id")
+    )
+    private List<Song> song;
+
 }

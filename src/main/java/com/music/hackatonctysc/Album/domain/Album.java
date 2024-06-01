@@ -1,15 +1,14 @@
 package com.music.hackatonctysc.Album.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.music.hackatonctysc.Song.domain.Song;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -21,7 +20,12 @@ public class Album {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer idAlbum;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private Date releaseDate;
+
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
+    private List<Song> songs;
 }

@@ -1,9 +1,8 @@
 package com.music.hackatonctysc.user.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.music.hackatonctysc.LIstaDeReproduccion.domain.Playlist;
+import com.music.hackatonctysc.Song.domain.Song;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -38,4 +38,11 @@ public class User {
     @PastOrPresent
     @Column(nullable = false)
     private LocalDateTime registerDate;
+
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Playlist> playlists;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Song>  listenSongs;
 }
