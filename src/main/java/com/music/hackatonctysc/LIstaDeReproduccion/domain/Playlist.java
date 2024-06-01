@@ -1,6 +1,7 @@
 package com.music.hackatonctysc.LIstaDeReproduccion.domain;
 
 import com.music.hackatonctysc.Song.domain.Song;
+import com.music.hackatonctysc.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,11 +30,16 @@ public class Playlist {
     @Column(nullable = false)
     private Date creationDate;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private User usuario;
+
+
     @ManyToMany
     @JoinTable(
             name = "playlist_song",
             joinColumns = @JoinColumn(name = "playlist_id"),
-            inverseJoinColumns = @JoinColumn(name = "cancion_id")
+            inverseJoinColumns = @JoinColumn(name = "song_id")
     )
     private List<Song> song;
 

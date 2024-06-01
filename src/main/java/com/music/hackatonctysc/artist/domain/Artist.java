@@ -22,12 +22,11 @@ import java.util.List;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idArtist;
+    private Integer idArtist;
 
-    @NotBlank
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "artista", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
     private List<Song> songs;
 }

@@ -30,13 +30,13 @@ public class Song {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "album_id")
-    private Album albumID;
+    private Album album;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private User usuario;
 
-    @ManyToMany(mappedBy = "canciones")
+    @ManyToMany(mappedBy = "song")
     private List<Playlist> playlists;
 
     private Integer duration;
