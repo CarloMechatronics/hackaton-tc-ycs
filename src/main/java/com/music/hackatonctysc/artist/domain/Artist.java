@@ -18,6 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Entity
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
