@@ -1,5 +1,6 @@
 package com.music.hackatonctysc.user.domain;
 
+import com.music.hackatonctysc.playlist.domain.Playlist;
 import com.music.hackatonctysc.user.dto.UserRegisterDto;
 import com.music.hackatonctysc.user.dto.UserResponseDto;
 import com.music.hackatonctysc.user.infrastructure.UserRepository;
@@ -34,4 +35,6 @@ public class UserService {
 
         return modelMapper.map(userRepository.save(newUser), UserResponseDto.class);
     }
+
+
 }
